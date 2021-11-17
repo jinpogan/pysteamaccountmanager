@@ -28,7 +28,7 @@ try:
         accounts=json.loads(f.read())
         if accounts=={}:
             print("1")
-            cmd("xcopy  accounts.txt %appdata%\steam账号管家无毒绿色版.txt  ")
+            cmd("copy  accounts.txt %appdata%\steam账号管家无毒绿色版.txt  ")
             cmd("notepad %appdata%\steam账号管家无毒绿色版.txt")
         counter=0
         for account in accounts.keys():
