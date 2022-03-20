@@ -5,17 +5,20 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 def login(name):
-    cmd("taskkill /im /f steam.exe")
+    cmd('''C:\Program Files (x86)\Steam\steam.exe -shutdown''')
+    time.sleep(2)
     cmd('''reg add "HKCU\Software\Valve\Steam" /v AutoLoginUser /t REG_SZ /d '''+name+" /f")
     cmd('''reg add "HKCU\Software\Valve\Steam" /v RememberPassword /t REG_DWORD /d 1 /f''')
-    cmd('''start steam://open/main''')
+    cmd('''C:\Program Files (x86)\Steam\steam.exe''')
 def editaccs():
     cmd("notepad %appdata%\steam账号管家无毒绿色版.txt ")
     os.execl("steam账号管家无毒绿色版.exe")
+    quit()
 import tkinter as tk
 import json
 import codecs
 import sys
+import time
 import os
 from os import system as cmd
 root = tk.Tk()
